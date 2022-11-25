@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirstFloor.unity
     guid: cc265a5489518754e85d539a1d63bafd
-  - enabled: 1
-    path: Assets/Scenes/SecondFloor.unity
-    guid: a08bd6c86203d4042ba46688091454e8
   m_configObjects: {}

@@ -84,11 +84,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("ÀÔ±¸Ãþ~1Ãþ ¹® ´ê¾Ò¾î¿ä~");
             SceneManager.LoadScene("FirstFloor");
         }
-        if(collision.gameObject.name=="1FDoor")
-        {
-            Debug.Log("1Ãþ~2Ãþ ¹® ´ê¾Ò¾î¿ä~");
-            SceneManager.LoadScene("SecondFloor");
-        }
+  
     }
     private void ItemPickup()
     {
