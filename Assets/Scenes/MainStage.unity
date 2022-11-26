@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c788059c96b4eb94a88fb2bfe366024c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
+  range: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -742,7 +742,7 @@ MonoBehaviour:
   runSpeed: 16
   crouchSpeed: 1.5
   jumpForce: 4
-  crouchPosY: 0.28
+  crouchPosY: 0.35
   lookSensitivity: 2
   cameraRotationLimit: 45
   theCamera: {fileID: 196339268}
