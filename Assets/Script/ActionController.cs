@@ -81,11 +81,13 @@ public class ActionController : MonoBehaviour
           GameObject.Find("Camera").GetComponent<DialogController>().ClickComputerMemo();
 
         }
-        if(Input.GetKeyDown(KeyCode.Escape))
+        
+        /*if (Input.GetKeyDown(KeyCode.Escape)) //DialogController의 Update로 수정
         {
             GameObject.Find("Camera").GetComponent<DialogController>().EnterComputerMemo();
             GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
         }
+        */
     }
     private void ComputerInfoDisappear()
     {

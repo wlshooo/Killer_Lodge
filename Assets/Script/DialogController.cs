@@ -32,6 +32,12 @@ public class DialogController : MonoBehaviour
     private void Update()
     {
         CheckItem();
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            EnterComputerMemo();
+            GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
+        }
     }
 
     private void CheckItem()
