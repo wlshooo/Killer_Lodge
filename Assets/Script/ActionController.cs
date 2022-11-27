@@ -24,25 +24,54 @@ public class ActionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckItem();
+        CheckComputer();
+        CheckSafe();
         //TryAction();
     }
-    private void CheckItem()
+    private void CheckComputer()
     {
         if(Physics.Raycast(transform.position,transform.forward,out hitInfo , range, layerMask))
         {
             if(hitInfo.transform.tag =="Computer")
             {
-                ItemInfoAppear();
+                ComputerInfoAppear();
             }
             
         }
         else
         {
-            ItemInfoDisappear();
+            ComputerInfoDisappear();
         }
     }
-    private void ItemInfoAppear()
+    private void CheckSafe()
+    {
+
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, range, layerMask))
+        {
+            if (hitInfo.transform.tag == "Safe")
+            {
+                SafeInfoAppear();
+            }
+
+        }
+        else
+        {
+            SafeInfoDisappear();
+        }
+    }
+    private void SafeInfoAppear()
+    {
+        pickupActivated = true;
+        actionText.gameObject.SetActive(true);
+        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 를 여시겠습니까? " + "<color=yellow>" + "[마우스 좌클릭]" + "</color>";
+    }
+    
+    private void SafeInfoDisappear()
+    {
+        pickupActivated = false;
+        actionText.gameObject.SetActive(false);
+    }
+    private void ComputerInfoAppear()
     {
         pickupActivated = true;
         actionText.gameObject.SetActive(true);
@@ -58,7 +87,7 @@ public class ActionController : MonoBehaviour
             GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
         }
     }
-    private void ItemInfoDisappear()
+    private void ComputerInfoDisappear()
     {
         pickupActivated = false;
         actionText.gameObject.SetActive(false);
