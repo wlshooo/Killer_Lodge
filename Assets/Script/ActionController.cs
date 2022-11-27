@@ -17,6 +17,10 @@ public class ActionController : MonoBehaviour
     [SerializeField]
     private Text actionText;    //행동을 보여 줄 텍스트;
 
+   
+
+   
+   
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +47,15 @@ public class ActionController : MonoBehaviour
         pickupActivated = true;
         actionText.gameObject.SetActive(true);
         actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 메모를 읽을 수 있습니다. " + "<color=yellow>" + "[마우스 좌클릭]" + "</color>";
+        if(Input.GetMouseButton(0))
+        {
+          GameObject.Find("Camera").GetComponent<DialogController>().ClickComputerMemo();
+
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameObject.Find("Camera").GetComponent<DialogController>().EnterComputerMemo();
+        }
     }
     private void ItemInfoDisappear()
     {

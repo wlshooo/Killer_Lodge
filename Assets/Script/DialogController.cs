@@ -13,12 +13,21 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private GameObject panel;
     private GameObject canvas;
-  [SerializeField]
+    [SerializeField]
     private Text panelText;
+
+    //컴퓨터 UI
+    [SerializeField]
+    private GameObject ComputerPanel;
+    [SerializeField]
+    private Text ComputerText;
 
      void Start()
     {
         canvas = GameObject.Find("Canvas");
+        Transform transform = canvas.transform;
+        panel = transform.Find("Panel").gameObject;
+        ComputerPanel = transform.Find("Computer Panel").gameObject;
     }
     private void Update()
     {
@@ -48,8 +57,7 @@ public class DialogController : MonoBehaviour
         {
             return;
         }
-        Transform transform = canvas.transform;
-        panel = transform.Find("Panel").gameObject;
+    
         if(panel ==null)
         {
             return;
@@ -57,10 +65,32 @@ public class DialogController : MonoBehaviour
         panelText.text = "이 신발은 한문이 신발인데.....그럼 앞에 저 시체는........";
         panel.SetActive(true);
         panelText.gameObject.SetActive(true);
+        
     }
     private void ShoseTextDisappear()
     {
         panel.SetActive(false);
         panelText.gameObject.SetActive(false);
+    }
+    public void ClickComputerMemo()
+    {
+        if (canvas == null)
+        {
+            return;
+        }
+
+        if (ComputerPanel == null)
+        {
+            return;
+        }
+        ComputerText.text = "Esc누를 시 종료 근데 쳐다 보고 있어야 함 ㅋㅋㅋㅋㅋ";
+        ComputerPanel.SetActive(true);
+        ComputerText.gameObject.SetActive(true);
+
+    }
+    public void EnterComputerMemo()
+    {
+        ComputerPanel.SetActive(false);
+        ComputerText.gameObject.SetActive(false);
     }
 }
