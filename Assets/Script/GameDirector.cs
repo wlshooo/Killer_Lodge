@@ -10,7 +10,7 @@ public class GameDirector : MonoBehaviour
 
     public Text gameTimeUI;
 
-    float setTime = 300;
+    float setTime = 65;
     int min;
     float sec;
     // Start is called before the first frame update
@@ -22,13 +22,14 @@ public class GameDirector : MonoBehaviour
         {
             gameTimeUI.gameObject.SetActive(true);
             setTime -= Time.deltaTime;
-            if(setTime>= 60f)
+            min = (int)setTime / 60;
+            sec = setTime % 60;
+            if (setTime>= 60f)
             {
-                min = (int)setTime / 60;
-                sec = setTime % 60;
+               
                 gameTimeUI.text = "남은 시간 : " + min + "분 " + (int)sec + "초";
             }
-            if(setTime<60f)
+            if(setTime < 60f)
             {
                 gameTimeUI.text = "남은 시간 : "  + (int)sec + "초";
             }
