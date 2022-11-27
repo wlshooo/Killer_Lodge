@@ -55,6 +55,7 @@ public class ActionController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             GameObject.Find("Camera").GetComponent<DialogController>().EnterComputerMemo();
+            GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
         }
     }
     private void ItemInfoDisappear()
