@@ -547,6 +547,7 @@ MonoBehaviour:
     m_Bits: 8
   panel: {fileID: 1133402887}
   panelText: {fileID: 1389984043}
+  SafeImage: {fileID: 1207102914}
   ComputerPanel: {fileID: 857215021}
   ComputerText: {fileID: 1379649083}
 --- !u!1 &207178624
@@ -1834,7 +1835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &857215022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2999,12 +3000,12 @@ GameObject:
   - component: {fileID: 1207102917}
   - component: {fileID: 1207102916}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SafeImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1207102915
 RectTransform:
   m_ObjectHideFlags: 0

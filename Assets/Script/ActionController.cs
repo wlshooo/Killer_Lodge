@@ -61,6 +61,11 @@ public class ActionController : MonoBehaviour
         pickupActivated = true;
         actionText.gameObject.SetActive(true);
         actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 를 여시겠습니까? " + "<color=yellow>" + "[마우스 좌클릭]" + "</color>";
+        if (Input.GetMouseButton(0))
+        {
+            GameObject.Find("Camera").GetComponent<DialogController>().ClickSafe();
+
+        }
     }
     
     private void SafeInfoDisappear()

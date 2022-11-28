@@ -16,18 +16,22 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private Text panelText;
 
+    [SerializeField]
+    private GameObject SafeImage;
+
     //컴퓨터 UI
     [SerializeField]
     private GameObject ComputerPanel;
     [SerializeField]
     private Text ComputerText;
-
+    
      void Start()
     {
         canvas = GameObject.Find("Canvas");
         Transform transform = canvas.transform;
         panel = transform.Find("Panel").gameObject;
         ComputerPanel = transform.Find("Computer Panel").gameObject;
+       
     }
     private void Update()
     {
@@ -37,6 +41,8 @@ public class DialogController : MonoBehaviour
         {
             EnterComputerMemo();
             GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
+            EnterSafe();
+
         }
     }
 
@@ -68,7 +74,8 @@ public class DialogController : MonoBehaviour
         {
             return;
         }
-        panelText.text = "이 신발은 한문이 신발인데.....그럼 앞에 저 시체는........";
+        panelText.text = "이 신발은 한문이 신발인데.....그럼 앞에 저 시체는........\n\n" +
+            "(컴퓨터에 메모가 쓰여 있는거 같다. 확인해보자)";
         panel.SetActive(true);
         panelText.gameObject.SetActive(true);
         
@@ -106,5 +113,24 @@ public class DialogController : MonoBehaviour
     {
         ComputerPanel.SetActive(false);
         ComputerText.gameObject.SetActive(false);
+    }
+
+    public void ClickSafe()
+    {
+        if (canvas == null)
+        {
+            return;
+        }
+
+        if (ComputerPanel == null)
+        {
+            return;
+        }
+        ComputerPanel.SetActive(true);
+        SafeImage.SetActive(true);
+    }
+    private void EnterSafe()
+    {
+        SafeImage.SetActive(false);
     }
 }
