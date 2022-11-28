@@ -95,7 +95,9 @@ public class DialogController : MonoBehaviour
             "살인마가 본인의 유흥을 위해 우리를 유인하고 가지고 노는거 같아\n\n" +
             "나는 문제를 풀지 못했어 너는 문제를 풀고 꼭 탈출하길 바래\n\n" +
             "끌어들여서 미안해\n\n"
-            +"- 한문이가 -";
+            + "- 한문이가 -\n\n"
+            + "<color=yellow>" + "[Q]를 누를 시 메모창이 꺼집니다." + "</color>\n"
+            + "<color=red>" + "메모가 사라지는 순간 10분의 제한시간이 생깁니다." + "</color>";
         ComputerPanel.SetActive(true);
         ComputerText.gameObject.SetActive(true);
 
