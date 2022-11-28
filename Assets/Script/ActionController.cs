@@ -17,10 +17,7 @@ public class ActionController : MonoBehaviour
     [SerializeField]
     private Text actionText;    //행동을 보여 줄 텍스트;
 
-   
 
-   
-   
     // Update is called once per frame
     void Update()
     {

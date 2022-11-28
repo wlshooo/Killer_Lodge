@@ -89,7 +89,13 @@ public class DialogController : MonoBehaviour
         {
             return;
         }
-        ComputerText.text = "Esc누를 시 종료 근데 쳐다 보고 있어야 함 ㅋㅋㅋㅋㅋ";
+        ComputerText.text = "너가 이 메모를 읽고 있다는 건 나는 이곳에서 탈출하지 못했고\n\n" +
+            "너와 다시 만날 수 없다는거겠지 이 별장은 살인마의 별장이야\n\n" +
+            "너도 알고 있겠지만 들어오는 순간 문이 잠겨 나갈 수 없어\n\n" +
+            "살인마가 본인의 유흥을 위해 우리를 유인하고 가지고 노는거 같아\n\n" +
+            "나는 문제를 풀지 못했어 너는 문제를 풀고 꼭 탈출하길 바래\n\n" +
+            "끌어들여서 미안해\n\n"
+            +"- 한문이가 -";
         ComputerPanel.SetActive(true);
         ComputerText.gameObject.SetActive(true);
 
