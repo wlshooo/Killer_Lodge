@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class SafeManager : MonoBehaviour
 {
+    
+
     [SerializeField]
     private Text password;  //현재 플레이어가 입력한 비밀번호
 
@@ -14,10 +16,12 @@ public class SafeManager : MonoBehaviour
     private float DelayTime = 1.0f;
     private float tempDelay;
     private bool check = false;
+
+   
     // Start is called before the first frame update
     void Start()
     {
-        
+     
     }
 
     // Update is called once per frame
@@ -30,6 +34,8 @@ public class SafeManager : MonoBehaviour
             if(tempDelay >=DelayTime)
             {
                 GameObject.Find("Camera").GetComponent<DialogController>().EnterSafe();    // 비밀번호가 맞으면 Correct Message가 뜨고 1초 후 UI 종료
+                GameObject.Find("Box").GetComponent<SafeAnimation>().SafeAnimationPlay();
+
             }
         }
     }
