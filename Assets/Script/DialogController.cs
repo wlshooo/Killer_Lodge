@@ -42,6 +42,7 @@ public class DialogController : MonoBehaviour
             EnterComputerMemo();
             GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
             EnterSafe();
+           
 
         }
     }
@@ -87,6 +88,7 @@ public class DialogController : MonoBehaviour
     }
     public void ClickComputerMemo()
     {
+        GameObject.Find("Camera").GetComponent<ActionController>().isComputer = false;
         if (canvas == null)
         {
             return;

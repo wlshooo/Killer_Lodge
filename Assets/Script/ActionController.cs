@@ -17,7 +17,8 @@ public class ActionController : MonoBehaviour
     [SerializeField]
     private Text actionText;    //행동을 보여 줄 텍스트;
 
-
+    public bool isSafe = true;
+    public bool isComputer = true;
     // Update is called once per frame
     void Update()
     {
@@ -58,14 +59,18 @@ public class ActionController : MonoBehaviour
     }
     private void SafeInfoAppear()
     {
-        pickupActivated = true;
-        actionText.gameObject.SetActive(true);
-        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 를 여시겠습니까? " + "<color=yellow>" + "[마우스 좌클릭]" + "</color>";
-        if (Input.GetMouseButton(0))
+        if(isSafe)
         {
-            GameObject.Find("Camera").GetComponent<DialogController>().ClickSafe();
+            pickupActivated = true;
+            actionText.gameObject.SetActive(true);
+            actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 를 여시겠습니까? " + "<color=yellow>" + "[마우스 좌클릭]" + "</color>";
+            if (Input.GetMouseButton(0))
+            {
+                GameObject.Find("Camera").GetComponent<DialogController>().ClickSafe();
 
+            }
         }
+      
     }
     
     private void SafeInfoDisappear()
@@ -75,21 +80,25 @@ public class ActionController : MonoBehaviour
     }
     private void ComputerInfoAppear()
     {
-        pickupActivated = true;
-        actionText.gameObject.SetActive(true);
-        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 메모를 읽을 수 있습니다. " + "<color=yellow>" + "[마우스 좌클릭]" + "</color>";
-        if(Input.GetMouseButton(0))
+        if(isComputer)
         {
-          GameObject.Find("Camera").GetComponent<DialogController>().ClickComputerMemo();
+            pickupActivated = true;
+            actionText.gameObject.SetActive(true);
+            actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 메모를 읽을 수 있습니다. " + "<color=yellow>" + "[마우스 좌클릭]" + "</color>";
+            if (Input.GetMouseButton(0))
+            {
+                GameObject.Find("Camera").GetComponent<DialogController>().ClickComputerMemo();
 
+            }
+
+            /*if (Input.GetKeyDown(KeyCode.Escape)) //DialogController의 Update로 수정
+            {
+                GameObject.Find("Camera").GetComponent<DialogController>().EnterComputerMemo();
+                GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
+            }
+            */
         }
-        
-        /*if (Input.GetKeyDown(KeyCode.Escape)) //DialogController의 Update로 수정
-        {
-            GameObject.Find("Camera").GetComponent<DialogController>().EnterComputerMemo();
-            GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
-        }
-        */
+
     }
     private void ComputerInfoDisappear()
     {

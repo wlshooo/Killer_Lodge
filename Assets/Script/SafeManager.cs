@@ -35,6 +35,8 @@ public class SafeManager : MonoBehaviour
             {
                 GameObject.Find("Camera").GetComponent<DialogController>().EnterSafe();    // 비밀번호가 맞으면 Correct Message가 뜨고 1초 후 UI 종료
                 GameObject.Find("Box").GetComponent<SafeAnimation>().SafeAnimationPlay();
+                GameObject.Find("Camera").GetComponent<ActionController>().isSafe = false;
+               
 
             }
         }
