@@ -29,7 +29,7 @@ public class SafeManager : MonoBehaviour
 
             if(tempDelay >=DelayTime)
             {
-                GameObject.Find("Camera").GetComponent<DialogController>().EnterSafe();
+                GameObject.Find("Camera").GetComponent<DialogController>().EnterSafe();    // 비밀번호가 맞으면 Correct Message가 뜨고 1초 후 UI 종료
             }
         }
     }

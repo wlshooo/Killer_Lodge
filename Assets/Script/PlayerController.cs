@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.name=="Door")
         {
-            Debug.Log("ÀÔ±¸Ãþ~1Ãþ ¹® ´ê¾Ò¾î¿ä~");
+          
             SceneManager.LoadScene("FirstFloor");
         }
   
