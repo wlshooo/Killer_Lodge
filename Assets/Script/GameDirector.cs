@@ -10,7 +10,7 @@ public class GameDirector : MonoBehaviour
 
     public Text gameTimeUI;
 
-    float setTime = 65;
+    float setTime = 600;
     int min;
     float sec;
     // Start is called before the first frame update

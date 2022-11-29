@@ -129,8 +129,9 @@ public class DialogController : MonoBehaviour
         ComputerPanel.SetActive(true);
         SafeImage.SetActive(true);
     }
-    private void EnterSafe()
+    public void EnterSafe()
     {
+        ComputerPanel.SetActive(false);
         SafeImage.SetActive(false);
     }
 }
