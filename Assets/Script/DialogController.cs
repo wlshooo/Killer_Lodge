@@ -130,10 +130,13 @@ public class DialogController : MonoBehaviour
         }
         ComputerPanel.SetActive(true);
         SafeImage.SetActive(true);
+        GameObject.Find("Player").GetComponent<PlayerController>().isInput = false;
+
     }
     public void EnterSafe()
     {
         ComputerPanel.SetActive(false);
         SafeImage.SetActive(false);
+        GameObject.Find("Player").GetComponent<PlayerController>().isInput = true;
     }
 }

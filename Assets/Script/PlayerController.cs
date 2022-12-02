@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private bool isCrouch = false; //앉아있는지 아닌지 체크
     private bool isRun = false;
     private bool isGround = true; //땅에 있는지 체크
-
+    public bool isInput = true; //패스워드 입력중일시-false
     
     [SerializeField]
     private float crouchPosY;  // 앉았을때 얼마나 앉을지 결정하는 변수
@@ -186,40 +186,52 @@ public class PlayerController : MonoBehaviour
     }
     private void Move()
     {
-       
-        float _moveDirX = Input.GetAxisRaw("Horizontal");   //좌우 입력시 1,0,-1 return
-        float _moveDirZ = Input.GetAxisRaw("Vertical");     //정면,뒤 입력시
-
-
-        Vector3 _moveHorizontal = transform.right * _moveDirX; //기본(1,0,0)에 입력된 X값을 곱해주어 좌우 확인
-        Vector3 _moveVertical = transform.forward * _moveDirZ;//(0,0,1)에 입력된 Z값을 곱해주어 위 아래 구분
-
-        Vector3 _velocity = (_moveHorizontal + _moveVertical).normalized * applySpeed; //좌표 값 합산 후 normalized하여 유니티에서 계산하기 편하게 변환 *속도
-        
-        if(_velocity == new Vector3(0,0,0))
+        if(isInput)
         {
-            anim.SetBool("Walk", false);
+            float _moveDirX = Input.GetAxisRaw("Horizontal");   //좌우 입력시 1,0,-1 return
+            float _moveDirZ = Input.GetAxisRaw("Vertical");     //정면,뒤 입력시
+
+
+            Vector3 _moveHorizontal = transform.right * _moveDirX; //기본(1,0,0)에 입력된 X값을 곱해주어 좌우 확인
+            Vector3 _moveVertical = transform.forward * _moveDirZ;//(0,0,1)에 입력된 Z값을 곱해주어 위 아래 구분
+
+            Vector3 _velocity = (_moveHorizontal + _moveVertical).normalized * applySpeed; //좌표 값 합산 후 normalized하여 유니티에서 계산하기 편하게 변환 *속도
+
+            if (_velocity == new Vector3(0, 0, 0))
+            {
+                anim.SetBool("Walk", false);
+            }
+            else
+                anim.SetBool("Walk", true);
+            myRigid.MovePosition(transform.position + _velocity * Time.deltaTime); //현재 좌표에 합산하지만 한번에 합산하게 되면 순간이동 하므로 delta으로 나누어 합산
         }
-        else
-            anim.SetBool("Walk", true);
-        myRigid.MovePosition(transform.position + _velocity * Time.deltaTime); //현재 좌표에 합산하지만 한번에 합산하게 되면 순간이동 하므로 delta으로 나누어 합산
+        
        
     }
     private void CameraRotation()
-    {   //상하 캐릭터 회전
-        float _xRotation = Input.GetAxisRaw("Mouse Y");//마우스는 2차원이므로 x,y밖에 없다
-        float _cameraRotationX = _xRotation * lookSensitivity;
-        currentCameraRotationX -= _cameraRotationX;
-        currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
-        theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+    {
+        if(isInput)
+        {
+            //상하 캐릭터 회전
+            float _xRotation = Input.GetAxisRaw("Mouse Y");//마우스는 2차원이므로 x,y밖에 없다
+            float _cameraRotationX = _xRotation * lookSensitivity;
+            currentCameraRotationX -= _cameraRotationX;
+            currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
+            theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+        }
+      
 
     }
     private void CharacterRotation()
     {
-        //좌우 캐릭터 회전
-        float _yRotation = Input.GetAxisRaw("Mouse X");
-        Vector3 _characterRotationY = new Vector3(0f, _yRotation, 0f) * lookSensitivity;
-        myRigid.MoveRotation(myRigid.rotation * Quaternion.Euler(_characterRotationY));
+        if(isInput)
+        {
+            //좌우 캐릭터 회전
+            float _yRotation = Input.GetAxisRaw("Mouse X");
+            Vector3 _characterRotationY = new Vector3(0f, _yRotation, 0f) * lookSensitivity;
+            myRigid.MoveRotation(myRigid.rotation * Quaternion.Euler(_characterRotationY));
+        }
+      
 
     }
 
