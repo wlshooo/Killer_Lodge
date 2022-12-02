@@ -144,6 +144,7 @@ public class ActionController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E))
         {
             GameObject.Find("key").GetComponent<KeyController>().Getkey();
+            GameObject.Find("Camera").GetComponent<DialogController>().ShowKeyImage();
         }
 
     }

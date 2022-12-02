@@ -19,6 +19,9 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private GameObject SafeImage;
 
+    [SerializeField]
+    private GameObject keyImage;
+
     //컴퓨터 UI
     [SerializeField]
     private GameObject ComputerPanel;
@@ -46,19 +49,19 @@ public class DialogController : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape)) //Esc 키 누를시 일시정지, 시작
         {
             if(GameObject.Find("Player").GetComponent<PlayerController>().isInput==true )
             {
                 GameObject.Find("Player").GetComponent<PlayerController>().isInput = false;
                 ComputerPanel.SetActive(true);
-                Time.timeScale = 0; //일시정지
+                Time.timeScale = 0; //제한 시간 일시정지
             }
             else if(GameObject.Find("Player").GetComponent<PlayerController>().isInput == false)
             {
                 GameObject.Find("Player").GetComponent<PlayerController>().isInput = true;
                 ComputerPanel.SetActive(false);
-                Time.timeScale = 1; //시작
+                Time.timeScale = 1; //제한시간 다시 시작
             }
         }
     }
@@ -154,5 +157,10 @@ public class DialogController : MonoBehaviour
         ComputerPanel.SetActive(false);
         SafeImage.SetActive(false);
         GameObject.Find("Player").GetComponent<PlayerController>().isInput = true;
+    }
+
+    public void ShowKeyImage()
+    {
+        keyImage.SetActive(true);
     }
 }
