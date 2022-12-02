@@ -19,11 +19,15 @@ public class ActionController : MonoBehaviour
 
     public bool isSafe = true;
     public bool isComputer = true;
+
+
+  
     // Update is called once per frame
     void Update()
     {
         CheckComputer();
         CheckSafe();
+        CheckKey();
         //TryAction();
     }
     private void CheckComputer()
@@ -43,8 +47,9 @@ public class ActionController : MonoBehaviour
     }
     private void CheckSafe()
     {
-
-        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, range, layerMask))
+        if(isSafe)
+        {
+             if (Physics.Raycast(transform.position, transform.forward, out hitInfo, range, layerMask))
         {
             if (hitInfo.transform.tag == "Safe")
             {
@@ -56,6 +61,8 @@ public class ActionController : MonoBehaviour
         {
             SafeInfoDisappear();
         }
+      }
+       
     }
     private void SafeInfoAppear()
     {
@@ -82,6 +89,7 @@ public class ActionController : MonoBehaviour
     {
         if(isComputer)
         {
+           
             pickupActivated = true;
             actionText.gameObject.SetActive(true);
             actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 메모를 읽을 수 있습니다. " + "<color=yellow>" + "[마우스 좌클릭]" + "</color>";
@@ -101,6 +109,47 @@ public class ActionController : MonoBehaviour
 
     }
     private void ComputerInfoDisappear()
+    {
+        pickupActivated = false;
+        actionText.gameObject.SetActive(false);
+    }
+
+
+    private void CheckKey()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, range, layerMask))
+        {
+
+            if (hitInfo.transform.tag =="Key")
+            {
+              Debug.Log(hitInfo.transform.GetComponent<ItemPickUp>().item.itemName);
+               KeyInfoAppear();
+            }
+
+        }
+        else
+        {
+            KeyInfoDisappear();
+        }
+
+
+
+    }
+
+    private void KeyInfoAppear()
+    {
+        pickupActivated = true;
+        actionText.gameObject.SetActive(true);
+        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " 를 습득하시겠습니까? " + "<color=yellow>" + "습득(E)" + "</color>";
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject.Find("key").GetComponent<KeyController>().Getkey();
+        }
+
+    }
+
+
+    private void KeyInfoDisappear()
     {
         pickupActivated = false;
         actionText.gameObject.SetActive(false);

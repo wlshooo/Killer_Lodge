@@ -644,6 +644,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   actionText: {fileID: 1289311026}
+  isSafe: 1
+  isComputer: 1
 --- !u!114 &196339270
 MonoBehaviour:
   m_ObjectHideFlags: 0
