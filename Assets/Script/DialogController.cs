@@ -45,6 +45,22 @@ public class DialogController : MonoBehaviour
            
 
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(GameObject.Find("Player").GetComponent<PlayerController>().isInput==true )
+            {
+                GameObject.Find("Player").GetComponent<PlayerController>().isInput = false;
+                ComputerPanel.SetActive(true);
+                Time.timeScale = 0; //일시정지
+            }
+            else if(GameObject.Find("Player").GetComponent<PlayerController>().isInput == false)
+            {
+                GameObject.Find("Player").GetComponent<PlayerController>().isInput = true;
+                ComputerPanel.SetActive(false);
+                Time.timeScale = 1; //시작
+            }
+        }
     }
 
     private void CheckItem()
