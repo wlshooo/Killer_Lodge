@@ -47,6 +47,10 @@ public class SafeManager : MonoBehaviour
 
             }
         }
+        if(Input.GetKeyDown(KeyCode.Backspace)&& password.text.Length>0)
+        {
+            password.text = password.text.Substring(0, password.text.Length - 1);   //마지막 글자 제거
+        }
 
        
     }
