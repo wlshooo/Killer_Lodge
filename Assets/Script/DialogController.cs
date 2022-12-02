@@ -11,10 +11,10 @@ public class DialogController : MonoBehaviour
     private RaycastHit hitInfo; //충돌체 정보 저장
     [SerializeField] LayerMask layerMask;  //특정 레이어를 가진 오브젝트에 대해서만 습득할 수 있어야 한다.
     [SerializeField]
-    private GameObject panel;
+    public GameObject panel;
     private GameObject canvas;
     [SerializeField]
-    private Text panelText;
+    public Text panelText;
 
     [SerializeField]
     private GameObject SafeImage;
@@ -27,7 +27,9 @@ public class DialogController : MonoBehaviour
     private GameObject ComputerPanel;
     [SerializeField]
     private Text ComputerText;
-    
+
+
+    public bool isKey = false;
      void Start()
     {
         canvas = GameObject.Find("Canvas");
@@ -162,5 +164,42 @@ public class DialogController : MonoBehaviour
     public void ShowKeyImage()
     {
         keyImage.SetActive(true);
+        isKey = true;
     }
+
+    public void trueKey()
+    {
+      
+
+            if (canvas == null)
+            {
+                return;
+            }
+
+            if (panel == null)
+            {
+                return;
+            }
+            panelText.text = "문이 열렸다....!";
+            panel.SetActive(true);
+            panelText.gameObject.SetActive(true);
+
+     }
+    public void falseKey()
+    {
+        if (canvas == null)
+        {
+            return;
+        }
+
+        if (panel == null)
+        {
+            return;
+        }
+        panelText.text = "열쇠가 없어 문을 열 수가 없다. 열쇠를 찾고 열어보자..!";
+        panel.SetActive(true);
+        panelText.gameObject.SetActive(true);
+    }
+
+    
 }

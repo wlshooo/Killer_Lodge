@@ -28,6 +28,7 @@ public class ActionController : MonoBehaviour
         CheckComputer();
         CheckSafe();
         CheckKey();
+        CheckDoor();
         //TryAction();
     }
     private void CheckComputer()
@@ -154,5 +155,48 @@ public class ActionController : MonoBehaviour
     {
         pickupActivated = false;
         actionText.gameObject.SetActive(false);
+    }
+
+
+    private void CheckDoor()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out hitInfo, range, layerMask))
+        {
+
+            if (hitInfo.transform.tag == "Door")
+            {
+               
+                DoorInfoAppear();
+            }
+
+        }
+        else
+        {
+            DoorDisappear();
+        }
+    }
+    private void DoorInfoAppear()
+    {
+    
+        actionText.gameObject.SetActive(true);
+        actionText.text = "문을 여시겠습니까? " + "<color=yellow>" + "열기(F)" + "</color>";
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            if (GameObject.Find("Camera").GetComponent<DialogController>().isKey==true)
+            {
+                GameObject.Find("Camera").GetComponent<DialogController>().trueKey();
+            }
+            else if(GameObject.Find("Camera").GetComponent<DialogController>().isKey == false)
+            {
+                GameObject.Find("Camera").GetComponent<DialogController>().falseKey();
+            }
+        }
+    }
+    private void DoorDisappear()
+    {
+        actionText.gameObject.SetActive(false);
+        GameObject.Find("Camera").GetComponent<DialogController>().panel.SetActive(false);
+       
+        GameObject.Find("Camera").GetComponent<DialogController>().panelText.gameObject.SetActive(false);
     }
 }

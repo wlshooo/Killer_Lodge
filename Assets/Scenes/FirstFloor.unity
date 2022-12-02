@@ -1239,6 +1239,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.299
       objectReference: {fileID: 0}
+    - target: {fileID: 4019790625012333840, guid: 8574bac77c3f10248a595fd7f5fa95af, type: 3}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019790625012333840, guid: 8574bac77c3f10248a595fd7f5fa95af, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019790625012333840, guid: 8574bac77c3f10248a595fd7f5fa95af, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 4155382710569478005, guid: 8574bac77c3f10248a595fd7f5fa95af, type: 3}
       propertyPath: m_IsActive
       value: 0
