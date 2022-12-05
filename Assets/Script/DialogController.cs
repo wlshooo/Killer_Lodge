@@ -22,6 +22,9 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private GameObject keyImage;
 
+    [SerializeField]
+    private GameObject KeyFrame;
+
     //ÄÄÇ»ÅÍ UI
     [SerializeField]
     private GameObject ComputerPanel;
@@ -164,6 +167,7 @@ public class DialogController : MonoBehaviour
     public void ShowKeyImage()
     {
         keyImage.SetActive(true);
+        KeyFrame.SetActive(true);
         isKey = true;
     }
 
