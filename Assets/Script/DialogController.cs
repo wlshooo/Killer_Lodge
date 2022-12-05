@@ -31,6 +31,8 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private Text ComputerText;
 
+    
+
 
     public bool isKey = false;
      void Start()
@@ -40,6 +42,7 @@ public class DialogController : MonoBehaviour
         panel = transform.Find("Panel").gameObject;
         ComputerPanel = transform.Find("Computer Panel").gameObject;
        
+
     }
     private void Update()
     {
@@ -50,7 +53,7 @@ public class DialogController : MonoBehaviour
             EnterComputerMemo();
             GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
             EnterSafe();
-           
+            GameObject.Find("Balloon").GetComponent<BalloonController>().ShowBalloon1();
 
         }
 

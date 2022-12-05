@@ -9,6 +9,7 @@ TagManager:
   - Safe
   - Key
   - Door
+  - Balloon
   layers:
   - Default
   - TransparentFX
