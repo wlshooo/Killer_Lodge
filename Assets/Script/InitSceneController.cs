@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManage : MonoBehaviour
+public class InitSceneController : MonoBehaviour
 {
+    public GameObject ManualPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +26,14 @@ public class SceneManage : MonoBehaviour
     {
         Debug.Log("게임종료!");
         Application.Quit();
+    }
+
+    public void ManualButtonClick()
+    {
+        ManualPanel.SetActive(true);
+    }
+    public void ManualExitButton()
+    {
+        ManualPanel.SetActive(false);
     }
 }
