@@ -31,9 +31,9 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private Text ComputerText;
 
-    
 
 
+    private bool isKeyCodeQ = false;          //메모를 읽지 않고 Q를 눌렀을 때 카운트와 풍선이 나오는걸 방지하는 bool 변수
     public bool isKey = false;
      void Start()
     {
@@ -48,7 +48,7 @@ public class DialogController : MonoBehaviour
     {
         CheckItem();
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Q)&& isKeyCodeQ )
         {
             EnterComputerMemo();
             GameObject.Find("GameDirector").GetComponent<GameDirector>().isCount = true;
@@ -115,6 +115,7 @@ public class DialogController : MonoBehaviour
     }
     public void ClickComputerMemo()
     {
+        isKeyCodeQ = true;
         GameObject.Find("Camera").GetComponent<ActionController>().isComputer = false;
         if (canvas == null)
         {
