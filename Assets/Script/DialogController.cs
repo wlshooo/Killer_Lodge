@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogController : MonoBehaviour
 {
@@ -82,12 +83,38 @@ public class DialogController : MonoBehaviour
             {
                 ShoseTextAppear();
             }
+            if (hitInfo.transform.tag == "FirstDoor")
+            {
+                DoorTextAppear();
+            }
 
         }
         else
         {
-            ShoseTextDisappear();
+            TextDisappear();
         }
+    }
+
+    private void DoorTextAppear()   //first stage ->1floor stage (DOOR)
+    {
+
+        if (canvas == null)
+        {
+            return;
+        }
+
+        if (panel == null)
+        {
+            return;
+        }
+        panelText.text = "문이 잠겨 있지 않은거 같다.... 들어가 볼까...?        " + "<color=yellow> " + "[ 마우스 좌 클릭시 문을 열고 들어갑니다. ]" + " </color>\n";
+        panel.SetActive(true);
+        panelText.gameObject.SetActive(true);
+        if(Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene("FirstFloor");
+        }
+
     }
 
     private void ShoseTextAppear()
@@ -108,7 +135,7 @@ public class DialogController : MonoBehaviour
         panelText.gameObject.SetActive(true);
         
     }
-    private void ShoseTextDisappear()
+    private void TextDisappear()
     {
         panel.SetActive(false);
         panelText.gameObject.SetActive(false);
