@@ -214,6 +214,12 @@ public class ActionController : MonoBehaviour
 
                 Balloon1InfoAppear();
             }
+
+            if (hitInfo.transform.name == "Balloon2")
+            {
+
+                Balloon2InfoAppear();
+            }
             //Balloon2,3 코드 복붙 추가 
         }
         else
@@ -236,7 +242,18 @@ public class ActionController : MonoBehaviour
         }
 
     }
+    private void Balloon2InfoAppear()
+    {
 
+        actionText.gameObject.SetActive(true);
+        actionText.text = "<color=red>" + "좌클릭 시 2번 문제를 오픈 할 수 있습니다." + "</color>";
+        if (Input.GetMouseButton(0))
+        {
+
+            GameObject.Find("Balloon").GetComponent<BalloonController>().ShowB2Question();
+        }
+
+    }
     //Balloon2,3 코드 복붙 추가 
 
     private void BalloonDisappear()

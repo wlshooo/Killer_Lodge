@@ -69,12 +69,12 @@ public class SafeManager : MonoBehaviour
         
         if(password.text==checkPassword)
         {
-            password.text = "Correct !";
+            password.text = " T R U E !";
             check = true;
         }
         else
         {
-            password.text = "";
+            password.text = " F A L S E !";
         }
     }
   
