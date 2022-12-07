@@ -7,9 +7,13 @@ public class BalloonController : MonoBehaviour
     float rotSpeed = 100f;
     public bool B1 = true;
     public bool B2 = true;
+    public bool B3 = true;
+    public bool B4 = true;
 
     public GameObject Balloon1;
     public GameObject Balloon2;
+    public GameObject Balloon3;
+    public GameObject Balloon4;
 
     AudioSource audioSource;
     // Start is called before the first frame update
@@ -33,6 +37,14 @@ public class BalloonController : MonoBehaviour
         if (B2)
         {
             Balloon2.transform.Rotate(new Vector3(0, 0, rotSpeed * Time.deltaTime));
+        }
+        if (B3)
+        {
+            Balloon3.transform.Rotate(new Vector3(0, 0, rotSpeed * Time.deltaTime));
+        }
+        if (B4)
+        {
+            Balloon4.transform.Rotate(new Vector3(0, 0, rotSpeed * Time.deltaTime));
         }
 
     }
@@ -58,7 +70,32 @@ public class BalloonController : MonoBehaviour
 
     public void ShowB2Question()
     {
+        B2 = false;
         Balloon2.SetActive(false);
+        audioSource.Play();
+        ShowBalloon3();
+
+    }
+
+    public void ShowBalloon3()
+    {
+        Balloon3.SetActive(true);
+    }
+
+    public void ShowB3Question()
+    {
+        Balloon3.SetActive(false);
+        audioSource.Play();
+        ShowBalloon4();
+    }
+    public void ShowBalloon4()
+    {
+        Balloon4.SetActive(true);
+    }
+
+    public void ShowB4Question()
+    {
+        Balloon4.SetActive(false);
         audioSource.Play();
 
     }

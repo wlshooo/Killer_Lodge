@@ -220,7 +220,19 @@ public class ActionController : MonoBehaviour
 
                 Balloon2InfoAppear();
             }
-            //Balloon2,3 코드 복붙 추가 
+
+
+            if (hitInfo.transform.name == "Balloon3")
+            {
+
+                Balloon3InfoAppear();
+            }
+            if (hitInfo.transform.name == "Balloon4")
+            {
+
+                Balloon4InfoAppear();
+            }
+           
         }
         else
         {
@@ -234,7 +246,7 @@ public class ActionController : MonoBehaviour
     {
 
         actionText.gameObject.SetActive(true);
-        actionText.text =  "<color=red>" + "좌클릭 시 1번 문제를 오픈 할 수 있습니다." + "</color>";
+        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=red>" + "1" + "</color>" + "번 문제를 오픈 할 수 있습니다.";
         if (Input.GetMouseButton(0))
         {
 
@@ -246,7 +258,7 @@ public class ActionController : MonoBehaviour
     {
 
         actionText.gameObject.SetActive(true);
-        actionText.text = "<color=red>" + "좌클릭 시 2번 문제를 오픈 할 수 있습니다." + "</color>";
+        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=red>" + "2" + "</color>" + "번 문제를 오픈 할 수 있습니다.";
         if (Input.GetMouseButton(0))
         {
 
@@ -254,7 +266,32 @@ public class ActionController : MonoBehaviour
         }
 
     }
-    //Balloon2,3 코드 복붙 추가 
+    private void Balloon3InfoAppear()
+    {
+
+        actionText.gameObject.SetActive(true);
+        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=red>" + "3" + "</color>" + "번 문제를 오픈 할 수 있습니다.";
+        if (Input.GetMouseButton(0))
+        {
+
+            GameObject.Find("Balloon").GetComponent<BalloonController>().ShowB3Question();
+        }
+
+    }
+    private void Balloon4InfoAppear()
+    {
+
+        actionText.gameObject.SetActive(true);
+        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "마지막 " + "<color=red>" + "4" + "</color>" + "번 문제를 오픈 할 수 있습니다.";
+        if (Input.GetMouseButton(0))
+        {
+
+            GameObject.Find("Balloon").GetComponent<BalloonController>().ShowB4Question();
+        }
+
+    }
+
+
 
     private void BalloonDisappear()
     {
