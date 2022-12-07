@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
          return false;
      }    
     */
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name=="Door")
         {
@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
         }
   
     }
+    */
     private void ItemPickup()
     {
         if(Input.GetKeyDown(KeyCode.E))
