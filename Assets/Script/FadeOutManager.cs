@@ -26,11 +26,11 @@ public class FadeOutManager : MonoBehaviour
 
     IEnumerator FadeCoroutine()
     {
-        float fadeCount = 1;
-        while(fadeCount>0.0f)
+        float fadeCount = 0;
+        while(fadeCount<1.0f)
         {
-            fadeCount -= 0.001f;
-            yield return new WaitForSeconds(0.001f);
+            fadeCount += 0.01f;
+            yield return new WaitForSeconds(0.01f);
             image.color = new Color(0, 0, 0, fadeCount);
         }
     }

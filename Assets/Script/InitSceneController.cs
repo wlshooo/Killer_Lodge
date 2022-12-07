@@ -14,7 +14,7 @@ public class InitSceneController : MonoBehaviour
 
     private bool isStart = false;
 
-    private float fDestroyTime = 4f;
+    private float fDestroyTime = 2f;
     private float fTickTime;
     // Start is called before the first frame update
     void Start()
