@@ -32,6 +32,9 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private Text ComputerText;
 
+    [SerializeField]
+    private Text PauseText;
+
 
 
     private bool isKeyCodeQ = false;          //메모를 읽지 않고 Q를 눌렀을 때 카운트와 풍선이 나오는걸 방지하는 bool 변수
@@ -64,12 +67,14 @@ public class DialogController : MonoBehaviour
             {
                 GameObject.Find("Player").GetComponent<PlayerController>().isInput = false;
                 ComputerPanel.SetActive(true);
+                PauseText.gameObject.SetActive(true);
                 Time.timeScale = 0; //제한 시간 일시정지
             }
             else if(GameObject.Find("Player").GetComponent<PlayerController>().isInput == false)
             {
                 GameObject.Find("Player").GetComponent<PlayerController>().isInput = true;
                 ComputerPanel.SetActive(false);
+                PauseText.gameObject.SetActive(false);
                 Time.timeScale = 1; //제한시간 다시 시작
             }
         }
