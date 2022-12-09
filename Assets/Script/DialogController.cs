@@ -26,6 +26,8 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private GameObject KeyFrame;
 
+ 
+
     //ÄÄÇ»ÅÍ UI
     [SerializeField]
     private GameObject ComputerPanel;
@@ -34,6 +36,18 @@ public class DialogController : MonoBehaviour
 
     [SerializeField]
     private Text PauseText;
+
+  
+    AudioSource audioSource;
+
+    
+    AudioSource FIrstFloorBgm;
+
+    [SerializeField]
+    AudioClip OpenDoor;
+
+    [SerializeField]
+    AudioClip CloseDoor;
 
 
 
@@ -45,6 +59,8 @@ public class DialogController : MonoBehaviour
         Transform transform = canvas.transform;
         panel = transform.Find("Panel").gameObject;
         ComputerPanel = transform.Find("Computer Panel").gameObject;
+        FIrstFloorBgm = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
        
 
     }
@@ -118,10 +134,12 @@ public class DialogController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             SceneManager.LoadScene("FirstFloor");
+            FIrstFloorBgm.Play();
+      
+            audioSource.PlayOneShot(CloseDoor);
         }
-
     }
-
+ 
     private void ShoseTextAppear()
     {
        

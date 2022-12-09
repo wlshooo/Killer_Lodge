@@ -258,7 +258,7 @@ public class ActionController : MonoBehaviour
     {
 
         actionText.gameObject.SetActive(true);
-        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=red>" + "2" + "</color>" + "번 문제를 오픈 할 수 있습니다.";
+        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=red>" + "1" + "</color>" + "<color=black>" + "번 문제를 오픈 할 수 있습니다." + " </color>";
         if (Input.GetMouseButton(0))
         {
 
@@ -270,7 +270,7 @@ public class ActionController : MonoBehaviour
     {
 
         actionText.gameObject.SetActive(true);
-        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=red>" + "3" + "</color>" + "번 문제를 오픈 할 수 있습니다.";
+        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=red>" + "1" + "</color>" + "<color=black>" + "번 문제를 오픈 할 수 있습니다." + " </color>";
         if (Input.GetMouseButton(0))
         {
 
@@ -282,7 +282,7 @@ public class ActionController : MonoBehaviour
     {
 
         actionText.gameObject.SetActive(true);
-        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "마지막 " + "<color=red>" + "4" + "</color>" + "번 문제를 오픈 할 수 있습니다.";
+        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=black>" + "마지막 " + " </color>" + "<color=red>" + "4" + "</color>" + "<color=black>" + "번 문제를 오픈 할 수 있습니다." + " </color>";
         if (Input.GetMouseButton(0))
         {
 
