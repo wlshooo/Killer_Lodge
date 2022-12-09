@@ -41,7 +41,9 @@ public class DialogController : MonoBehaviour
   
     AudioSource audioSource;
 
-    
+    [SerializeField]
+    AudioClip buttonSoundClip;
+
     AudioSource FIrstFloorBgm;
 
     [SerializeField]
@@ -260,6 +262,22 @@ public class DialogController : MonoBehaviour
         panelText.text = "열쇠가 없어 문을 열 수가 없다. 열쇠를 찾고 열어보자..!";
         panel.SetActive(true);
         panelText.gameObject.SetActive(true);
+    }
+
+    public void GoBackGameButton()
+    {
+        audioSource.PlayOneShot(buttonSoundClip);
+        GameObject.Find("Player").GetComponent<PlayerController>().isInput = true;
+        ComputerPanel.SetActive(false);
+        Pause.SetActive(false);
+        Time.timeScale = 1; //제한시간 다시 시작
+    }
+
+    public void ExitGameButton()
+    {
+        audioSource.PlayOneShot(buttonSoundClip);
+        Debug.Log("게임종료!");
+        Application.Quit();
     }
 
     
