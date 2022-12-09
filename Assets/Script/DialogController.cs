@@ -34,8 +34,9 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private Text ComputerText;
 
+
     [SerializeField]
-    private Text PauseText;
+    private GameObject Pause;
 
   
     AudioSource audioSource;
@@ -83,14 +84,16 @@ public class DialogController : MonoBehaviour
             {
                 GameObject.Find("Player").GetComponent<PlayerController>().isInput = false;
                 ComputerPanel.SetActive(true);
-                PauseText.gameObject.SetActive(true);
+                Pause.SetActive(true);
+
+
                 Time.timeScale = 0; //제한 시간 일시정지
             }
             else if(GameObject.Find("Player").GetComponent<PlayerController>().isInput == false)
             {
                 GameObject.Find("Player").GetComponent<PlayerController>().isInput = true;
                 ComputerPanel.SetActive(false);
-                PauseText.gameObject.SetActive(false);
+                Pause.SetActive(false);
                 Time.timeScale = 1; //제한시간 다시 시작
             }
         }
