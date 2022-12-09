@@ -30,7 +30,7 @@ public class DialogController : MonoBehaviour
 
     //ÄÄÇ»ÅÍ UI
     [SerializeField]
-    private GameObject ComputerPanel;
+    public GameObject ComputerPanel;
     [SerializeField]
     private Text ComputerText;
 

@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private bool isGround = true; //땅에 있는지 체크
     public bool isInput = true; //패스워드 입력중일시-false
     private bool isWalk = false;
+
+  
     
     [SerializeField]
     private float crouchPosY;  // 앉았을때 얼마나 앉을지 결정하는 변수
@@ -56,11 +58,15 @@ public class PlayerController : MonoBehaviour
         originPosY = theCamera.transform.localPosition.y;   //플레이어 대신 카메라의 y를 내림 이때 카메라가 플레이어 안에 속해 있으므로 상대적인 변수
         applyCrouchPosY = originPosY;
         WalkaudioSource = GetComponent<AudioSource>();
+
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+      
+
         IsGround();
         TryJump();
         TryRun();
@@ -90,6 +96,7 @@ public class PlayerController : MonoBehaviour
   
     }
     */
+   
     private void ItemPickup()
     {
         if(Input.GetKeyDown(KeyCode.E))

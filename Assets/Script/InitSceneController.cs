@@ -45,6 +45,7 @@ public class InitSceneController : MonoBehaviour
                 // 2초 뒤에 실행
                 
                 SceneManager.LoadScene("MainStage");
+               
             }
         }
        
