@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool isRun = false;
     private bool isGround = true; //땅에 있는지 체크
     public bool isInput = true; //패스워드 입력중일시-false
+    private bool isWalk = false;
     
     [SerializeField]
     private float crouchPosY;  // 앉았을때 얼마나 앉을지 결정하는 변수
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     public Animator anim;
 
+    AudioSource WalkaudioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
         applySpeed = walkSpeed;
         originPosY = theCamera.transform.localPosition.y;   //플레이어 대신 카메라의 y를 내림 이때 카메라가 플레이어 안에 속해 있으므로 상대적인 변수
         applyCrouchPosY = originPosY;
+        WalkaudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -201,9 +204,23 @@ public class PlayerController : MonoBehaviour
             if (_velocity == new Vector3(0, 0, 0))
             {
                 anim.SetBool("Walk", false);
+                isWalk = false;
+
             }
             else
+            {
                 anim.SetBool("Walk", true);
+                isWalk = true;
+              
+            }
+
+            if (isWalk)
+            {
+                if (!WalkaudioSource.isPlaying)
+                    WalkaudioSource.Play();
+            }
+            else
+                WalkaudioSource.Stop();
             myRigid.MovePosition(transform.position + _velocity * Time.deltaTime); //현재 좌표에 합산하지만 한번에 합산하게 되면 순간이동 하므로 delta으로 나누어 합산
         }
         
