@@ -52,6 +52,12 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     AudioClip CloseDoor;
 
+    [SerializeField]
+    AudioClip tryCloseDoor;
+
+    [SerializeField]
+    AudioClip tryOpenDoor;
+
 
 
     private bool isKeyCodeQ = false;          //메모를 읽지 않고 Q를 눌렀을 때 카운트와 풍선이 나오는걸 방지하는 bool 변수
@@ -243,6 +249,7 @@ public class DialogController : MonoBehaviour
             {
                 return;
             }
+            audioSource.PlayOneShot(tryOpenDoor);
             panelText.text = "문이 열렸다....!";
             panel.SetActive(true);
             panelText.gameObject.SetActive(true);
@@ -259,6 +266,7 @@ public class DialogController : MonoBehaviour
         {
             return;
         }
+        audioSource.PlayOneShot(tryCloseDoor);
         panelText.text = "열쇠가 없어 문을 열 수가 없다. 열쇠를 찾고 열어보자..!";
         panel.SetActive(true);
         panelText.gameObject.SetActive(true);

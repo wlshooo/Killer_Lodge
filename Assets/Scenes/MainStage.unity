@@ -754,7 +754,9 @@ MonoBehaviour:
   Pause: {fileID: 907326508}
   buttonSoundClip: {fileID: 8300000, guid: 5e18e682bbe39964cadf82ab031b7e63, type: 3}
   OpenDoor: {fileID: 8300000, guid: 897b612e164af93439cac5fcc9563770, type: 3}
-  CloseDoor: {fileID: 8300000, guid: e3833c92df1efd74cac978aba37da032, type: 3}
+  CloseDoor: {fileID: 8300000, guid: 5f87ef9325a5a1d478717477b8184564, type: 3}
+  tryCloseDoor: {fileID: 8300000, guid: 647147605d014554c841f4d1116310ec, type: 3}
+  tryOpenDoor: {fileID: 8300000, guid: d63a03f87ba3d834a82169674dcd9f86, type: 3}
   isKey: 0
 --- !u!82 &196339271
 AudioSource:

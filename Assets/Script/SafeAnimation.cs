@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SafeAnimation : MonoBehaviour
 {
-
+   
+    private AudioSource openSafeSound;
     public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        openSafeSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class SafeAnimation : MonoBehaviour
     public void SafeAnimationPlay()
     {
         anim.SetTrigger("Correct");
+        openSafeSound.Play();
         
     }
 }
