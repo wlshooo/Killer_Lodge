@@ -38,6 +38,9 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private GameObject Pause;
 
+    [SerializeField]
+    private GameObject Ending;
+
   
     AudioSource audioSource;
 
@@ -119,12 +122,23 @@ public class DialogController : MonoBehaviour
             {
                 DoorTextAppear();
             }
+            if(hitInfo.transform.tag =="Killer")
+            {
+                StartCoroutine(EndingSceneDelay());
+            }
 
         }
         else
         {
             TextDisappear();
         }
+    }
+
+    public IEnumerator EndingSceneDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+        //GameObject.Find("Camera").GetComponent<PlayerController>().isInput = false;
+        Ending.SetActive(true);
     }
 
     private void DoorTextAppear()   //first stage ->1floor stage (DOOR)
@@ -277,7 +291,7 @@ public class DialogController : MonoBehaviour
             return;
         }
         audioSource.PlayOneShot(tryCloseDoor);
-        panelText.text = "열쇠가 없어 문을 열 수가 없다. 열쇠를 찾고 열어보자..!";
+        panelText.text = "문이 잠겨서 열쇠가 없으면 문을 열 수 없을거 같다. 열쇠를 찾고 열어보자..!";
         panel.SetActive(true);
         panelText.gameObject.SetActive(true);
     }

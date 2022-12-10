@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class GameDirector : MonoBehaviour
 
     public Text gameTimeUI;
 
-    float setTime = 65;
+    private bool isCorountine = true;
+    float setTime = 15;
     int min;
     float sec;
     // Start is called before the first frame update
@@ -36,7 +38,24 @@ public class GameDirector : MonoBehaviour
             if(setTime <=0)
             {
                 gameTimeUI.text = "남은 시간 : 0초";
+               if(isCorountine)
+                {
+                    StartCoroutine(FailSceneLoad());
+                }
+              
+              
             }
         }
     }
+
+
+    IEnumerator FailSceneLoad()
+    {
+        isCorountine = false;
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("FailEnding");
+        GameObject.Find("Camera").GetComponent<DialogController>().EnterSafe();
+    }
+
 }
+

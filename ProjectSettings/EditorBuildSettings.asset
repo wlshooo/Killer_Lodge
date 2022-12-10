@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ClearScene2.unity
     guid: 93ae286aedda7e74abe0131680bf1fc1
+  - enabled: 1
+    path: Assets/Scenes/FailEnding.unity
+    guid: e7dce19d90623cb4bbbedb293cab061b
   m_configObjects: {}

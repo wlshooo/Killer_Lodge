@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class SafeManager : MonoBehaviour
 {
@@ -75,7 +76,15 @@ public class SafeManager : MonoBehaviour
         else
         {
             password.text = " F A L S E !";
+            StartCoroutine(FailSceneLoad());
         }
+    }
+
+    IEnumerator FailSceneLoad()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("FailEnding");
+        GameObject.Find("Camera").GetComponent<DialogController>().EnterSafe();
     }
   
 }
