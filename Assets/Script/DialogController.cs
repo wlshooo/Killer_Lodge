@@ -238,9 +238,9 @@ public class DialogController : MonoBehaviour
 
     public void trueKey()
     {
-      
+        
 
-            if (canvas == null)
+        if (canvas == null)
             {
                 return;
             }
@@ -253,8 +253,18 @@ public class DialogController : MonoBehaviour
             panelText.text = "πÆ¿Ã ø≠∑»¥Ÿ....!";
             panel.SetActive(true);
             panelText.gameObject.SetActive(true);
+        StartCoroutine(ClearScene1Delay());
 
-     }
+
+
+
+    }
+
+    IEnumerator ClearScene1Delay()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("ClearScene1");
+    }
     public void falseKey()
     {
         if (canvas == null)
