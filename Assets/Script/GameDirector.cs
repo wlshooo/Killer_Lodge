@@ -12,7 +12,7 @@ public class GameDirector : MonoBehaviour
     public Text gameTimeUI;
 
     private bool isCorountine = true;
-    float setTime = 15;
+    float setTime = 600;
     int min;
     float sec;
     // Start is called before the first frame update
@@ -52,7 +52,7 @@ public class GameDirector : MonoBehaviour
     IEnumerator FailSceneLoad()
     {
         isCorountine = false;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.15f);
         SceneManager.LoadScene("FailEnding");
         GameObject.Find("Camera").GetComponent<DialogController>().EnterSafe();
     }
