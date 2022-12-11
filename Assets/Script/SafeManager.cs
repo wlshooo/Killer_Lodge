@@ -12,7 +12,7 @@ public class SafeManager : MonoBehaviour
     [SerializeField]
     private Text password;  //현재 플레이어가 입력한 비밀번호
 
-    string checkPassword = "12345"; //내가 설정하는 비밀번호
+    string checkPassword = "1774"; //내가 설정하는 비밀번호
 
 
     GameObject Safe;

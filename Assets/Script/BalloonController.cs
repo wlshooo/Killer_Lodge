@@ -18,6 +18,7 @@ public class BalloonController : MonoBehaviour
     public GameObject Q1;
     public GameObject Q2;
     public GameObject Q3;
+    public GameObject Q4;
 
     AudioSource audioSource;
     // Start is called before the first frame update
@@ -106,6 +107,7 @@ public class BalloonController : MonoBehaviour
     {
         Q3.SetActive(false);
         Balloon4.SetActive(false);
+        Q4.SetActive(true);
         audioSource.Play();
 
     }

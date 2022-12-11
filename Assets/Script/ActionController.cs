@@ -258,7 +258,7 @@ public class ActionController : MonoBehaviour
     {
 
         actionText.gameObject.SetActive(true);
-        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=red>" + "2" + "</color>" + "<color=black>" + "번 문제를 오픈 할 수 있습니다." + " </color>";
+        actionText.text = "<color=yellow>" + "[좌클릭]  " + " </color>" + "<color=red>" + "2" + "</color>"  + "번 문제를 오픈 할 수 있습니다." ;
         if (Input.GetMouseButton(0))
         {
 
