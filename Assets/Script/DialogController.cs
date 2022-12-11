@@ -39,7 +39,7 @@ public class DialogController : MonoBehaviour
     private GameObject Pause;
 
     [SerializeField]
-    private GameObject Ending;
+    public GameObject Ending;
 
   
     AudioSource audioSource;
@@ -136,11 +136,21 @@ public class DialogController : MonoBehaviour
 
     public IEnumerator EndingSceneDelay()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         //GameObject.Find("Camera").GetComponent<PlayerController>().isInput = false;
         Ending.SetActive(true);
     }
 
+    /*public IEnumerator ChangeToInit()
+    {
+       
+        GameObject.Find("Camera").GetComponent<AudioSource>().Stop();
+        Ending.SetActive(false);
+        yield return new WaitForSeconds(10.0f);
+        SceneManager.LoadScene("InitScene");
+        
+    }
+    */
     private void DoorTextAppear()   //first stage ->1floor stage (DOOR)
     {
 

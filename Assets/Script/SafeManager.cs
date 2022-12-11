@@ -85,6 +85,9 @@ public class SafeManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("FailEnding");
         GameObject.Find("Camera").GetComponent<DialogController>().EnterSafe();
+       
     }
+
+   
   
 }
