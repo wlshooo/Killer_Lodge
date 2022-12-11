@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ToInitScene : MonoBehaviour
 {
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +24,13 @@ public class ToInitScene : MonoBehaviour
     {
         GameObject.Find("Camera").GetComponent<DialogController>().offKeyImage();
         GameObject.Find("Camera").GetComponent<AudioSource>().Stop();
-        yield return new WaitForSeconds(10.0f);
-        Application.Quit();
+        yield return new WaitForSeconds(5.0f);
+        GameObject.Find("Player").GetComponent<PlayerController>().falseIsInput();
+        GameObject.Find("Camera").GetComponent<DialogController>().ComputerPanel.SetActive(true);
+        GameObject.Find("Camera").GetComponent<DialogController>().gameExitButton.SetActive(true);
+       
 
     }
+
+   
 }

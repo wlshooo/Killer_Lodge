@@ -259,5 +259,9 @@ public class PlayerController : MonoBehaviour
       
 
     }
+    public void falseIsInput()
+    {
+        isInput = false;
+    }
 
 }

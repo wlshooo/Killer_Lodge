@@ -26,7 +26,8 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private GameObject KeyFrame;
 
- 
+    public GameObject gameExitButton;
+
 
     //ÄÄÇ»ÅÍ UI
     [SerializeField]
@@ -327,5 +328,10 @@ public class DialogController : MonoBehaviour
         Application.Quit();
     }
 
-    
+    public void gameExit()
+    {
+        Application.Quit();
+    }
+
+
 }
