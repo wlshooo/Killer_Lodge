@@ -109,6 +109,11 @@ public class DialogController : MonoBehaviour
             }
         }
     }
+    public void offKeyImage()
+    {
+        KeyFrame.SetActive(false);
+        keyImage.SetActive(false);
+    }
 
     private void CheckItem()
     {

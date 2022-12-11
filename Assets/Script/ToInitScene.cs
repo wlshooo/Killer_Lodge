@@ -21,7 +21,7 @@ public class ToInitScene : MonoBehaviour
 
     public IEnumerator ChangeToInit()
     {
-
+        GameObject.Find("Camera").GetComponent<DialogController>().offKeyImage();
         GameObject.Find("Camera").GetComponent<AudioSource>().Stop();
         yield return new WaitForSeconds(10.0f);
         Application.Quit();
