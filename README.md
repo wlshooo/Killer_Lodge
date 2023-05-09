@@ -1,5 +1,5 @@
 # Killer_Lodge
-Unity으로 개발한 공포 3D 방탈출 게임입니다.
+Unity engine으로 개발한 공포 3D 방탈출 게임입니다.
 
 [플레이 영상]
 
